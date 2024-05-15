@@ -1,0 +1,123 @@
+/*BODY-------------------------------------------------------------------------*/
+body{
+    margin: 0;
+    font-size: 16px;
+}
+
+/*HEADER-----------------------------------------------------------------------*/
+header{
+    width: 100%;
+    position: fixed;
+    top:0; 
+} 
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+ .logo img{
+    width: 200px;
+    height: 50px;
+ }
+
+.btn-menu {
+    display: flex;
+    padding: 15px;
+}
+
+.btn-menu a img{
+    width: 25px;
+    height: 35px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    background-color: grey; 
+}
+
+ul.navbar {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: none; /*genera que no se muestre la navbar*/
+    flex-direction: column;
+}
+
+/*clase agregada con js para que se muestre la navbar cuando hago click en el boton hamburguesa*/
+ul.navbar.show {
+    display: flex;
+}
+
+ul.navbar li {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 15px 20px;
+}
+
+ul.navbar li a {
+    text-decoration: none; 
+    color: white;
+}
+
+/*para cambiar de color cuando nos posicionamos sobre el elemento*/
+ul.navbar li:hover {
+    background-color: rgb(92, 90, 90);
+}
+/*------------------------------------------------------------------------------------------------*/
+/*MAIN*/
+h1,h2{
+    text-transform: uppercase;
+    color: #762123;
+}
+main{
+    /* display: flex;
+    flex-direction: column; */
+    width: 100%;
+    margin-top: 150px;/*Esta bien esto?? es para que no se superponga con el nav que tiene postion fixed*/
+}
+ 
+.seccion-galeria{
+    width:95%;
+    display: flex;
+    flex-direction: column;
+    
+ }
+.item-galeria{
+    text-align: center;
+    margin: 8px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+}
+
+.item-galeria img{
+    width: 100%;
+    height: auto;
+} 
+
+form {
+    display: flex;
+    flex-direction: column;
+} 
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+@media (width >= 660px){
+
+    /* en desktop ocultamos siempre el boton del menu */
+    .btn-menu {
+       display: none;
+    }
+
+   /* cambiamos la direccion del flex */
+    ul.navbar,.seccion-galeria{
+        display: flex;
+        flex-direction: row;
+    }
+    
+}
