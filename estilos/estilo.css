@@ -2,6 +2,7 @@
 body{
     margin: 0;
     font-size: 16px;
+    font-family: sans-serif;
 }
 
 /*HEADER-----------------------------------------------------------------------*/
@@ -103,6 +104,58 @@ form {
     display: flex;
     flex-direction: column;
 } 
+
+
+/*Footer--------------------*/
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logoFooter{
+   display: flex;
+   justify-content: center;
+    height: 80px;
+    width: 100%;
+    border-top: 5px solid black;
+    margin-top: 30px;
+}
+
+.separador{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+}
+
+.logoFooter img{
+    margin-top: 20px;
+    width: 250px;
+    height: 100px; 
+}
+
+.infoFooter{
+    display: flex;
+    justify-content: center;
+    /*no toma margin bottom */
+}
+.infoFooter img{
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    font-family: sans-serif;
+}
+
+.infoFooter div{
+    width: 240px;
+    height: 208px; 
+    display: flex;
+    flex-direction: column;
+    
+
+}
 
 
 /*------------------------------------------------------------------------------------------------*/
