@@ -99,14 +99,14 @@ section,.seccion-nosotros{
 .home{
     display:flex;
     flex-direction: column;
-    justify-content: center;
     margin:16px;
-    width: 75%;    
+    width: 75%;
+    margin-bottom: 80px;   
 }
 
-figure{
+.home figure{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
  
 .reseña-menu{
@@ -135,25 +135,17 @@ form {
 /*Footer--------------------*/
 
 footer{
+    width:100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .logoFooter{
-   display: flex;
-   justify-content: center;
-    height: 80px;
-    width: 100%;
-    border-top: 5px solid black;
-    margin-top: 30px;
-}
-
-.separador{
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 350px;
+    border-top: 5px solid black;
+    margin-top: 30px;
 }
 
 .logoFooter img{
@@ -164,14 +156,14 @@ footer{
 
 .infoFooter{
     display: flex;
-    justify-content: center;
-    /*no toma margin bottom */
+    flex-direction: column;
+    align-items: center;
 }
+
 .infoFooter img{
     width: 100px;
     height: 100px;
     margin-top: 40px;
-    font-family: sans-serif;
 }
 
 .infoFooter div{
@@ -201,10 +193,10 @@ footer{
         flex-direction: row;
     }
 
-    /* section {
+    section {
         width: 100%;
         justify-content: space-between;
-    } */
+    }
 
     .home{
         width: 60%;  
@@ -213,6 +205,10 @@ footer{
     .reseña-menu{
         width: 33%;
     }
-    
-    
+
+    .infoFooter{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;  
+    }
 }
