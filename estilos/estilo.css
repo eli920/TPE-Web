@@ -1,7 +1,8 @@
 /*BODY-------------------------------------------------------------------------*/
 body{
+    height: 100vh;
     margin: 0;
-    font-size: 16px;
+    font-size: 12px;
     font-family: sans-serif;
 }
 
@@ -16,7 +17,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items:center;
-    padding: 15px;
+    padding: 16px;
     background-color: black;
     color: white;
 }
@@ -27,7 +28,7 @@ header{
 
 .btn-menu {
     display: flex;
-    padding: 15px;
+    padding: 16px;
 }
 
 .btn-menu a img{
@@ -71,23 +72,48 @@ ul.navbar li:hover {
 }
 /*------------------------------------------------------------------------------------------------*/
 /*MAIN*/
+h1{
+    text-align: center;
+}
+
 h1,h2{
     text-transform: uppercase;
     color: #762123;
 }
-main{
-    /* display: flex;
-    flex-direction: column; */
-    width: 100%;
-    margin-top: 150px;/*Esta bien esto?? es para que no se superponga con el nav que tiene postion fixed*/
+p{
+    text-align: justify;
 }
- 
-.seccion-galeria{
+main{
     width:95%;
+    margin-top: 150px;/*Esta bien esto?? es para que no se superponga con el nav que tiene postion fixed */
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    
- }
+    align-items: center;
+}
+section,.seccion-nosotros{
+    display: flex;
+    flex-direction: column;
+}
+
+.home{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:16px;
+    width: 75%;    
+}
+
+figure{
+    display: flex;
+    justify-content: space-around;
+}
+ 
+.reseña-menu{
+    margin: 16px;
+}
+
+
 .item-galeria{
     text-align: center;
     margin: 8px;
@@ -152,8 +178,7 @@ footer{
     width: 240px;
     height: 208px; 
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
 
 }
 
@@ -161,6 +186,9 @@ footer{
 /*------------------------------------------------------------------------------------------------*/
 
 @media (width >= 660px){
+    body{
+        font-size: 16px;
+    }
 
     /* en desktop ocultamos siempre el boton del menu */
     .btn-menu {
@@ -168,9 +196,23 @@ footer{
     }
 
    /* cambiamos la direccion del flex */
-    ul.navbar,.seccion-galeria{
+    ul.navbar,section{
         display: flex;
         flex-direction: row;
     }
+
+    /* section {
+        width: 100%;
+        justify-content: space-between;
+    } */
+
+    .home{
+        width: 60%;  
+    }
+
+    .reseña-menu{
+        width: 33%;
+    }
+    
     
 }
