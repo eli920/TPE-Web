@@ -15,7 +15,7 @@ header{
 
 .logo {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items:center;
     padding: 16px;
     background-color: black;
@@ -84,7 +84,6 @@ p{
     text-align: justify;
 }
 main{
-    width:95%;
     margin-top: 150px;/*Esta bien esto?? es para que no se superponga con el nav que tiene postion fixed */
     padding: 16px;
     display: flex;
@@ -94,11 +93,13 @@ main{
 section,.seccion-nosotros{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .home{
     display:flex;
     flex-direction: column;
+    align-items: center;
     margin:16px;
     width: 75%;
     margin-bottom: 80px;   
@@ -113,10 +114,27 @@ section,.seccion-nosotros{
     margin: 16px;
 }
 
+.item-nosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.item-nosotros h3,li{
+    list-style: none;
+    font-style:italic;
+    color:#762123;
+    text-align: end; 
+}
+
+.galeria-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
 
 .item-galeria{
-    text-align: center;
-    margin: 8px;
+    width: 100%;
     border: 1px solid #dddddd;
     border-radius: 10px;
 }
@@ -126,7 +144,21 @@ section,.seccion-nosotros{
     height: auto;
 } 
 
-form {
+.contacto{
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+.nuestros-locales{
+    display: flex;
+    flex-direction:column;
+   
+}
+.form-contacto{
+    padding: 16px;
+    border: 1px solid #762123;
+}
+form{
     display: flex;
     flex-direction: column;
 } 
@@ -135,15 +167,12 @@ form {
 
 th{
     border: 2px solid black;
-    background-color: #762123;
-    
-    
+    background-color: #762123;     
 }
 
 
 tr:nth-child(even){
-    color: crimson;
-    
+    color: crimson;   
 }
 
 td{
@@ -163,40 +192,44 @@ footer{
     width:100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    align-items: center;
+    border-top: 5px solid black;
+    margin-bottom: 50px;
 }
 
-.logoFooter{
+ .logoFooter{
     display: flex;
-    justify-content: center;
-    border-top: 5px solid black;
-    margin-top: 30px;
-}
+    justify-content: center; 
+    margin-top: 20px;
+} 
 
 .logoFooter img{
     margin-top: 20px;
     width: 250px;
-    height: 100px; 
+    height: 50px; 
 }
 
 .infoFooter{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
-
 .infoFooter img{
-    width: 100px;
-    height: 100px;
-    margin-top: 40px;
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
 }
 
 .infoFooter div{
-    width: 240px;
-    height: 208px; 
-    display: flex;
-    flex-direction: column;   
-
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.infoFooter h3 + p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
@@ -220,7 +253,6 @@ footer{
 
     section {
         width: 100%;
-        justify-content: space-between;
     }
 
     .home{
@@ -231,9 +263,25 @@ footer{
         width: 33%;
     }
 
+    .galeria-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contacto-grid{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+   
+
     .infoFooter{
         display: flex;
         flex-direction: row;
-        justify-content: center;  
+        justify-content: space-around;
     }
+
+    .infoFooter div{
+        width: 33%;
+     } 
+   
 }

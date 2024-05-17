@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilo.css">
-    <title>La Cabrera</title>
+    <title>La Cabrera-Contacto</title>
 </head>
 <body>
     <header>
@@ -26,99 +26,100 @@
     </header>
 
     <main>
+        <section class="contacto-grid">
+            <section class="nuestros-locales">
+                <h1>Donde encontrarnos</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Local</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Palermo, Buenos Aires</td>
+                            <td>José A. Cabrera 5099/5127</td>
+                            <td>+549 116875-4000</td>
+                        </tr>
+                        <tr>
+                            <td>Pilar, Buenos Aires</td>
+                            <td>La Magnolias 533, km 50, Ramal Pilar</td>
+                            <td>+549 230437-1737</td>
+                        </tr>
+                        <tr>
+                            <td>City Bell, Buenos Aires</td>
+                            <td>Calle 472 esquina diagonal 3</td>
+                            <td>+549 221592-7373</td>
+                        </tr>
+                        <tr>
+                            <td>San Salvador de Jujuy, Jujuy</td>
+                            <td>Patricias Argentinas 313</td>
+                            <td>+549 7859632415 </td>
+                        </tr>
+                        <tr>
+                            <td>Salta Capital</td>
+                            <td>Av Belgrano 354</td>
+                            <td>+549 3875858362</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </section>    
+            <aside class="form-contacto">
+                    <h2>Contacto</h2>
+                    <form action="" id="form">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
+                        <label for="telefono">Número de teléfono</label>
+                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 249 154 0000000" required>
+                        <label for="email">Dirección de e-mail</label>
+                        <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
+                        <label for="consulta">Consulta</label>
+                        <textarea id="consulta" name="consulta" cols="30" rows="10" placeholder="Déjenos aquí su consulta" required></textarea>
+                        <label>Captcha *</label>
+                        <label id="captcha"></label>
+                        <label for="captcha-ingresado">Ingrese el número mostrado arriba</label>
+                        <input id="captcha-ingresado"  type="number" name="captcha-ingresado" placeholder="Número mostrado en pantalla>">
+                        <input type="checkbox" >
+                        <label id="resultado-captcha"></label>
+                        <button>Enviar</button>
+                    </form>
+            </aside>
         <section>
-            <h1>Donde encontrarnos</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Local</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Palermo, Buenos Aires</td>
-                        <td>José A. Cabrera 5099/5127</td>
-                        <td>+549 116875-4000</td>
-                    </tr>
-                    <tr>
-                        <td>Pilar, Buenos Aires</td>
-                        <td>La Magnolias 533, km 50, Ramal Pilar</td>
-                        <td>+549 230437-1737</td>
-                    </tr>
-                    <tr>
-                        <td>City Bell, Buenos Aires</td>
-                        <td>Calle 472 esquina diagonal 3</td>
-                        <td>+549 221592-7373</td>
-                    </tr>
-                    <tr>
-                        <td>San Salvador de Jujuy, Jujuy</td>
-                        <td>Patricias Argentinas 313</td>
-                        <td>+549 7859632415 </td>
-                    </tr>
-                    <tr>
-                        <td>Salta Capital</td>
-                        <td>Av Belgrano 354</td>
-                        <td>+549 3875858362</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            <aside class="formulario">
-                <h2>Contacto</h2>
-                <form action="" id="form">
-                    <label for="nombre">Nombre y Apellido</label>
-                    <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
-                    <label for="telefono">Número de teléfono</label>
-                    <input id="telefono" type="number" name="telefono" placeholder="Ej: 249 154 0000000" required>
-                    <label for="email">Dirección de e-mail</label>
-                    <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
-                    <label for="consulta">Consulta</label>
-                    <textarea id="consulta" name="consulta" cols="30" rows="10" placeholder="Déjenos aquí su consulta" required></textarea>
-                    <label>Captcha *</label>
-                    <label id="captcha"></label>
-                    <label for="captcha-ingresado">Ingrese el número mostrado arriba</label>
-                    <input id="captcha-ingresado"  type="number" name="captcha-ingresado" placeholder="Número mostrado en pantalla>">
-                    <input type="checkbox" >
-                    <label id="resultado-captcha"></label>
-                    <button>Enviar</button>
-                </form>
-        </aside>
-        </section>
     </main>
 
     
     <footer>
-        <div class="logoFooter">
-            <img src="estilos/imagenes/laCabreraFooter.png" alt="">
-        </div>
+        <figure class="logoFooter">
+            <img src="estilos/imagenes/laCabreraFooter.png" alt="Logo de marca">
+        </figure>
     
         <div class="infoFooter">
             <div>
-                <img src="estilos/imagenes/iconoUbicacion.png" alt="">
-                <h3>Ubiccion:</h3>
+                <img src="estilos/imagenes/iconoUbicacion.png" alt="Icono de ubicación">
+                <h3>Ubiccion</h3>
                 <p>Jose Antonio Cabrera 5099</p>
                 <p>Jose Antonio Cabrera 5127</p>
+            </div>
 
             <div>
-                <img src="estilos/imagenes/iconoTelefo.png" alt="">
-                <h3>Telefonos:</h3>
+                <img src="estilos/imagenes/iconoTelefono.png" alt="Icono de un teléfono">
+                <h3>Telefonos</h3>
                 <p>4831-0325</p>
                 <p>(+51 9 11) 6875-4000</p>
             </div>
 
             <div>
-            <img src="estilos/imagenes/iconoReloj.png" alt="">
-            <h3>Horarios:</h3>
+            <img src="estilos/imagenes/iconoReloj.png" alt="Icono de un reloj">
+            <h3>Horarios</h3>
             <p>Abiertos todos los dias:</p>
             <p>11:30 a 16hs - 18:30hs a 1:00</p>
             </div>
             
         </div>
 
-
-    
     </footer>
     <script type="text/javascript" src="javascript/menu.js"></script>
     <script type="text/javascript" src="javascript/formulario.js"></script>
