@@ -18,9 +18,9 @@
         <nav> 
             <ul class="navbar">
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="quienes-somos.html" target="_blank">Quienes somos</a></li>
-                <li><a href="platos.html" target="_blank">Nuestros Platos</a></li>
-                <li><a href="contacto.html" target="_blank">Contacto</a></li>
+                <li><a href="quienes-somos.html">Quienes somos</a></li>
+                <li><a href="platos.html">Nuestros Platos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -68,22 +68,21 @@
                 </table>
             </section>    
             <aside class="form-contacto">
-                    <h2>Contacto</h2>
+                    <h2>Contactanos</h2>
                     <form action="" id="form">
                         <label for="nombre">Nombre y Apellido</label>
                         <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
                         <label for="telefono">Número de teléfono</label>
-                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 249 154 0000000" required>
+                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
                         <label for="email">Dirección de e-mail</label>
                         <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
                         <label for="consulta">Consulta</label>
                         <textarea id="consulta" name="consulta" cols="30" rows="10" placeholder="Déjenos aquí su consulta" required></textarea>
                         <label>Captcha *</label>
-                        <label id="captcha"></label>
+                        <div id="captcha"></div><!--Acá va el captcha generado(número random)-->
                         <label for="captcha-ingresado">Ingrese el número mostrado arriba</label>
-                        <input id="captcha-ingresado"  type="number" name="captcha-ingresado" placeholder="Número mostrado en pantalla>">
-                        <input type="checkbox" >
-                        <label id="resultado-captcha"></label>
+                        <input id="captcha-ingresado"  type="number" name="captcha-ingresado" placeholder="Número mostrado en pantalla">
+                        <div id="resultado-captcha"></div><!--Acá va el mensaje de el resultado de la validación del captcha-->
                         <button>Enviar</button>
                     </form>
             </aside>
