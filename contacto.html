@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="estilos/estilo.css">
     <title>La Cabrera-Contacto</title>
 </head>
-<body>
+<body id="fondo">
     <header>
         <div class="logo">
             <img src="estilos/imagenes/logo.png" alt="Logo de la marca">
@@ -23,6 +23,9 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
+        <div class="claro-oscuro">
+            <a id="cambiar-fondo"><img src="estilos/imagenes/iconoClaroOscuro.png" alt="Icono modo claro oscuro"></a>
+        </div>
     </header>
 
     <main>
@@ -73,7 +76,7 @@
                         <label for="nombre">Nombre y Apellido</label>
                         <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
                         <label for="telefono">Número de teléfono</label>
-                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
+                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" required>
                         <label for="email">Dirección de e-mail</label>
                         <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
                         <label for="consulta">Consulta</label>
@@ -121,6 +124,7 @@
 
     </footer>
     <script type="text/javascript" src="javascript/menu.js"></script>
+    <script type="text/javascript" src="javascript/modoClaroOscuro.js"></script>
     <script type="text/javascript" src="javascript/formulario.js"></script>
 </body>
 </html>
