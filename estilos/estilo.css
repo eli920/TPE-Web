@@ -1,4 +1,4 @@
-/*BODY-------------------------------------------------------------------------*/
+/*BODY-----------------------------------------------------------------------------------------*/
 body{
     height: 100vh;
     margin: 0;
@@ -9,11 +9,12 @@ body{
 
 .oscuro {
     background-color: black;
-    color: grey;
+    color: white;
+
 }
 
 
-/*HEADER-----------------------------------------------------------------------*/
+/*HEADER---------------------------------------------------------------------------------------*/
 header{
     width: 100%;
     position: fixed;
@@ -90,8 +91,8 @@ ul.navbar li:hover {
        width: 30px;
        height: 30px;
    }
-/*------------------------------------------------------------------------------------------------*/
-/*MAIN*/
+
+/*MAIN---------------------------------------------------------------------------------------------*/
 h1{
     text-align: center;
 }
@@ -195,7 +196,7 @@ form button{
     margin:10px;
 }
 
-/*formato de la tabla-------------------------------------------------*/
+/*formato de la tabla---------------*/
 th,td{
     border: 2px solid #762123;
 }
@@ -214,7 +215,7 @@ td{
     padding-bottom: 8px;
 }
 
-/*Footer---------------------------------------------------------------*/
+/*FOOTER------------------------------------------------------------------------------------------*/
 
 footer{
     width:100%;
@@ -268,21 +269,19 @@ footer{
         flex-direction: row;
     }
 
-    section {
+    section,.home figure,.reseña-platos {
         width: 100%;
     }
 
     .home figure{
-        width: 100%;
         justify-content: space-around;
     }
 
     .reseña-platos{
-        width: 100%;
         align-items: start;
     }
 
-    .item-reseña-platos{
+    .item-reseña-platos,.infoFooter div{
         width: 33%;
     }
 
@@ -300,9 +299,5 @@ footer{
     .infoFooter{
         justify-content: space-around;
     }
-
-    .infoFooter div{
-        width: 33%;
-     } 
    
 }
