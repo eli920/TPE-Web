@@ -4,6 +4,7 @@ const BASE_URL = 'https://666c8e3949dbc5d7145e6b07.mockapi.io/api/franquicias';
 // asigno event listener a los botones
 let form = document.querySelector("#form-franquicias"); 
 form.addEventListener('submit', agregar);
+document.querySelector('#form-franquicias').addEventListener('submit', agregarTres);
 document.querySelector('#editar').addEventListener('click', editar); 
 document.querySelector('#borrar').addEventListener('click', borrar); 
 
@@ -26,12 +27,13 @@ async function obtener(){
             let direccion= franquicia.direccion;
             let telefono= franquicia.telefono;
             id=franquicia.id;
-
+            
             tabla.innerHTML+=`<tr>
                                 <td>${local}</td>
                                 <td>${direccion}</td>
                                 <td>${telefono}</td>
-                              </tr>`
+                            </tr>`
+           
         }
     } catch (error) {
         console.log(error);
@@ -65,13 +67,45 @@ async function agregar(e) {
         // vuelvo a traer todas las franquicias
         obtener();
     } catch (e) {
-        mostrarError(e);
+        console.log(e);
     }
 };
 
-async function editar (e) {
-    e.preventDefault();
+//funcion para agregar/enviar datos
+async function agregarTres(agregar) {
+    // e.preventDefault();
 
+    // // obtengo los datos del form
+    // let data = new FormData(formTres);
+
+    // // creo el objeto JSON
+    //     let franquicia = {
+    //         local: data.get('local'),
+    //         direccion: data.get('direccion'),
+    //         telefono: Number(data.get('telefono')),
+    // }
+    
+    try {
+        // envio la nueva franquicia al servicio REST
+        for(let i=0; i<3;i++){
+            agregar();
+            // let response = await fetch(BASE_URL , 
+            // {
+            //     method: 'POST',
+            //     headers: {
+            //         "Content-Type": 'application/json'
+            //     },
+            //     body: JSON.stringify(franquicia),
+            // });
+        }
+        // vuelvo a traer todas las franquicias
+        obtener();
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+async function editar () {
     // obtengo los datos del form
     let data = new FormData(form);
 
@@ -83,12 +117,30 @@ async function editar (e) {
     }
     try {
         // envio la nueva franquicia al servicio REST
-        let response = await fetch(`${BASE_URL}/:${id}` , {
+        let response = await fetch(`${BASE_URL}/${id}` , {
             method: 'PUT',
             headers: {
                 "Content-Type": 'application/json'
             },
             body: JSON.stringify(franquicia),
+        });
+
+        // if(response===200){
+
+        // }
+
+        // vuelvo a traer todas las franquicias
+        obtener();
+    } catch (e) {
+        mostrarError(e);
+    }
+};
+
+async function borrar () {
+    try {
+        // envio la nueva franquicia al servicio REST
+        let response = await fetch(`${BASE_URL}/${id}` , {
+            method: 'DELETE'
         });
 
         // if(response===200){
