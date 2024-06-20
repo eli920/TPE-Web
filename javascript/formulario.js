@@ -43,6 +43,5 @@ function obtenerDatos(e){
       document.querySelector("#resultado-captcha").innerHTML= "No existen coincidencias";
       generarCaptcha();
     }
-    
+  
   }
-

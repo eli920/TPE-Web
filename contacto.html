@@ -40,36 +40,28 @@
                             <th>Teléfono</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Palermo, Buenos Aires</td>
-                            <td>José A. Cabrera 5099/5127</td>
-                            <td>+549 116875-4000</td>
-                        </tr>
-                        <tr>
-                            <td>Pilar, Buenos Aires</td>
-                            <td>La Magnolias 533, km 50, Ramal Pilar</td>
-                            <td>+549 230437-1737</td>
-                        </tr>
-                        <tr>
-                            <td>City Bell, Buenos Aires</td>
-                            <td>Calle 472 esquina diagonal 3</td>
-                            <td>+549 221592-7373</td>
-                        </tr>
-                        <tr>
-                            <td>San Salvador de Jujuy, Jujuy</td>
-                            <td>Patricias Argentinas 313</td>
-                            <td>+549 7859632415 </td>
-                        </tr>
-                        <tr>
-                            <td>Salta Capital</td>
-                            <td>Av Belgrano 354</td>
-                            <td>+549 3875858362</td>
-                        </tr>
+                    <tbody id="cuerpo-tabla">
+                      <!--acá se van cargando los datos de la tabla dinámica--> 
                         
                     </tbody>
                 </table>
-            </section>    
+            </section>
+            <!--linea nueva--> 
+            <section>
+                <form action="" id="form-franquicias">
+                    <label for="local">Local</label>
+                    <input id="local" type="text" name="local" placeholder="Ingrese el local" required>
+                    <label for="direccion">Dirección</label>
+                    <input id="direccion" type="text" name="direccion" placeholder="Ingrese la dirección" required>
+                    <label for="telefono">Número de teléfono</label>
+                    <input id="telefono" type="tel" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
+                    <p>
+                        <input type="button" id="editar" value="Editar">
+                        <input type="button" id="borrar" value="Borrar">
+                    </p>
+                    <button>Agregar</button>
+                </form>
+            </section>   
             <aside class="form-contacto">
                     <h2>Contactanos</h2>
                     <form action="" id="form">
@@ -123,8 +115,9 @@
         </div>
 
     </footer>
+    <script type="text/javascript" src="javascript/tabla-franquicias.js"></script>
     <script type="text/javascript" src="javascript/menu.js"></script>
-    <script type="text/javascript" src="javascript/modoClaroOscuro.js"></script>
+    <script type="text/javascript" src="javascript/modo-claro-oscuro.js"></script>
     <script type="text/javascript" src="javascript/formulario.js"></script>
 </body>
 </html>
