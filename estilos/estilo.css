@@ -264,7 +264,7 @@ footer{
     }
 
    /* cambiamos la direccion del flex */
-    ul.navbar,section,.home figure,.reseña-platos,.infoFooter{
+    ul.navbar,section,.home figure,.reseña-platos,.info-footer{
         display: flex;
         flex-direction: row;
     }
@@ -281,7 +281,7 @@ footer{
         align-items: start;
     }
 
-    .item-reseña-platos,.infoFooter div{
+    .item-reseña-platos,.info-footer div{
         width: 33%;
     }
 
@@ -296,7 +296,7 @@ footer{
         align-items: start;
     }
 
-    .infoFooter{
+    .info-footer{
         justify-content: space-around;
     }
    
