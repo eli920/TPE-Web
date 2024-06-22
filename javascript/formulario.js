@@ -12,7 +12,7 @@ function generarCaptcha(){
 
   let captchaRandom=document.querySelector("#captcha");
   captchaRandom.innerHTML= captcha; 
-  
+  console.log(captcha)
 }
  
 generarCaptcha();

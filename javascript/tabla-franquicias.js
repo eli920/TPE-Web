@@ -1,8 +1,8 @@
 "use strict"
 const BASE_URL = 'https://666c8e3949dbc5d7145e6b07.mockapi.io/api/franquicias';
 
-let form = document.querySelector("#form-franquicias");
-form.addEventListener('submit', agregar);
+let form_franquicias = document.querySelector("#form-franquicias");
+form_franquicias.addEventListener('submit', agregar);
 
 //Mensaje que mostrará si la acción fue exitosa o si hubo algún error
 let mensaje = document.querySelector(".mensaje");
@@ -58,12 +58,12 @@ async function obtener() {
 async function agregar(e) {
     e.preventDefault();
 
-    let data = new FormData(form);
+    let data = new FormData(form_franquicias);
 
     let franquicia = {
         local: data.get('local'),
         direccion: data.get('direccion'),
-        telefono: Number(data.get('telefono')),
+        telefono: data.get('telefono'),
     }
     try {
         let response = await fetch(BASE_URL, {
@@ -86,18 +86,18 @@ async function agregar(e) {
         mensaje.innerHTML = `Error: ${error}`;
     }
 
-    form.reset();
+    form_franquicias.reset();
 };
 
 
 async function editar(id) {
 
-    let data = new FormData(form);
+    let data = new FormData(form_franquicias);
 
     let franquicia = {
         local: data.get('local'),
         direccion: data.get('direccion'),
-        telefono: Number(data.get('telefono')),
+        telefono: data.get('telefono'),//Si le paso a number, me aparece el cero cuando quiero editar. Como no voy a operar, no hace falta pasarlo.
     }
 
 
@@ -120,13 +120,13 @@ async function editar(id) {
         mensaje.innerHTML = `Error: ${error}`;
     }
 
-    form.reset();
+    form_franquicias.reset();
 };
 
 async function borrar(id) {
     try {
         let response = await fetch(`${BASE_URL}/${id}`, {
-            method: 'DELET'
+            method: 'DELETE'
         });
 
         if (response.ok) {
