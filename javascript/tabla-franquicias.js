@@ -4,6 +4,11 @@ const BASE_URL = 'https://666c8e3949dbc5d7145e6b07.mockapi.io/api/franquicias';
 let form_franquicias = document.querySelector("#form-franquicias");
 form_franquicias.addEventListener('submit', agregar);
 
+// document.querySelector("#agregar-varios").addEventListener('click', function(e){
+//     let cantidad= Number(document.querySelector("#cantidad-item").value);
+//     agregar_varios(cantidad);
+// });
+
 //Mensaje que mostrará si la acción fue exitosa o si hubo algún error
 let mensaje = document.querySelector(".mensaje");
 
@@ -59,27 +64,31 @@ async function agregar(e) {
     e.preventDefault();
 
     let data = new FormData(form_franquicias);
+    let cantidad= Number(document.querySelector("#cantidad-item").value);
 
     let franquicia = {
         local: data.get('local'),
         direccion: data.get('direccion'),
         telefono: data.get('telefono'),
     }
+
     try {
-        let response = await fetch(BASE_URL, {
-            method: 'POST',
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify(franquicia),
-        });
+        for (let i = 0; i < cantidad; i++) {
+            const response = await fetch(BASE_URL, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(franquicia)
+            });
 
-        if (response.ok) {
-            mensaje.innerHTML = 'Creado!';
-        }
+            if (response.ok) {
+                mensaje.innerHTML = 'Creado!';
+            }
 
-
-        obtener();
+        }        
+                   
+         obtener();
 
 
     } catch (error) {
