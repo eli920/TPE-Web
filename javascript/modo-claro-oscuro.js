@@ -3,6 +3,14 @@
 document.querySelector("#cambiar-fondo").addEventListener("click", cambiarFondo);
 
 function cambiarFondo(){
-    document.querySelector("#fondo").classList.toggle("oscuro");
-    
+    let oscuro=document.querySelector("#fondo").classList.toggle("oscuro");
+    if(oscuro){
+        document.querySelector(".img-ubicacion").src="./imagenes/iconoUbicacionBlanco.png";
+        document.querySelector(".img-telefono").src="./imagenes/iconoTelefonoBlanco.png";
+        document.querySelector(".img-reloj").src="./imagenes/iconoRelojBlanco.png";
+    }else{
+        document.querySelector(".img-ubicacion").src="./imagenes/iconoUbicacion.png";
+        document.querySelector(".img-telefono").src="./imagenes/iconoTelefono.png";
+        document.querySelector(".img-reloj").src="./imagenes/iconoReloj.png";
+    } 
 }
