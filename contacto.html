@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilo.css">
     <title>La Cabrera-Contacto</title>
 </head>
-
 <body id="fondo">
     <header>
         <div class="logo">
             <img src="./imagenes/logo.png" alt="Logo de la marca">
             <div class="btn-menu">
-                <a><img src="./imagenes/menuHamburguesa.png" alt="Botón de menu hamburguesa" /></a>
+                <a><img src="./imagenes/menuHamburguesa.png" alt="Botón de menu hamburguesa"/></a>
             </div>
         </div>
-
-        <nav>
+        
+        <nav> 
             <ul class="navbar">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="quienes-somos.html">Quienes somos</a></li>
@@ -40,16 +38,17 @@
                             <th>Local</th>
                             <th>Dirección</th>
                             <th>Teléfono</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="cuerpo-tabla">
-                        <!--acá se van cargando los datos de la tabla dinámica-->
-
+                      <!--acá se van cargando los datos de la tabla dinámica--> 
+                        
                     </tbody>
                 </table>
                 <p class="mensaje"></p>
             </section>
-            <!--linea nueva-->
+            <!--linea nueva--> 
             <section>
                 <form action="" id="form-franquicias">
                     <label for="local">Local</label>
@@ -57,53 +56,42 @@
                     <label for="direccion">Dirección</label>
                     <input id="direccion" type="text" name="direccion" placeholder="Ingrese la dirección" required>
                     <label for="telefono">Número de teléfono</label>
-                    <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" minlength="10"
-                        required>
+                    <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
+                    <label for="cantidad-item">Cantidad de ítems a agregar</label>
+                    <input id="cantidad-item" type="number" name="cantidad-item" placeholder="Ingrese cantidad de items a agregar" required> 
                     <button>Agregar</button>
-                    <!-- <button id="agregar-3">Agregar 3</button>  -->
+                    
                 </form>
-            </section>
-
-            <!-- <section>
-                <h1>filtrar</h1>
-                <input id="local" type="text" name="local" placeholder="ingre local a buscar">
-                <button id="btn-buscar">Buscar</button>
-
-                <p id="mostrar"></p>
-            </section> -->
-
+                
+            </section>    
             <aside class="form-contacto">
-                <h2>Contactanos</h2>
-                <form action="" id="form">
-                    <label for="nombre">Nombre y Apellido</label>
-                    <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
-                    <label for="telefono">Número de teléfono</label>
-                    <input id="telefono" type="tel" name="telefono" placeholder="Ej: 11 00000000" minlength="10"
-                        required>
-                    <label for="email">Dirección de e-mail</label>
-                    <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
-                    <label for="consulta">Consulta</label>
-                    <textarea id="consulta" name="consulta" cols="30" rows="10" placeholder="Déjenos aquí su consulta"
-                        required></textarea>
-                    <label>Captcha *</label>
-                    <div id="captcha"></div><!--Acá va el captcha generado-->
-                    <label for="captcha-ingresado">Ingrese el texto mostrado arriba</label>
-                    <input id="captcha-ingresado" type="text" name="captcha-ingresado"
-                        placeholder="Texto mostrado en pantalla">
-                    <div id="resultado-captcha"></div>
-                    <!--Acá va el mensaje de el resultado de la validación del captcha-->
-                    <button>Enviar</button>
-                </form>
+                    <h2>Contactanos</h2>
+                    <form action="" id="form">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
+                        <label for="telefono">Número de teléfono</label>
+                        <input id="telefono" type="tel" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
+                        <label for="email">Dirección de e-mail</label>
+                        <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
+                        <label for="consulta">Consulta</label>
+                        <textarea id="consulta" name="consulta" cols="30" rows="10" placeholder="Déjenos aquí su consulta" required></textarea>
+                        <label>Captcha *</label>
+                        <div id="captcha"></div><!--Acá va el captcha generado-->
+                        <label for="captcha-ingresado">Ingrese el texto mostrado arriba</label>
+                        <input id="captcha-ingresado"  type="text" name="captcha-ingresado" placeholder="Texto mostrado en pantalla">
+                        <div id="resultado-captcha"></div><!--Acá va el mensaje de el resultado de la validación del captcha-->
+                        <button>Enviar</button>
+                    </form>
             </aside>
-            <section>
+        <section>
     </main>
 
-
+    
     <footer>
         <figure class="logo-footer">
             <img src="./imagenes/laCabreraFooter.png" alt="Logo de marca">
         </figure>
-
+    
         <div class="info-footer">
             <div>
                 <img src="./imagenes/iconoUbicacion.png" alt="Icono de ubicación">
@@ -120,22 +108,20 @@
             </div>
 
             <div>
-                <img src="./imagenes/iconoReloj.png" alt="Icono de un reloj">
-                <h3>Horarios</h3>
-                <p>Abiertos todos los dias:</p>
-                <p>11:30 a 16hs - 18:30hs a 1:00</p>
+            <img src="./imagenes/iconoReloj.png" alt="Icono de un reloj">
+            <h3>Horarios</h3>
+            <p>Abiertos todos los dias:</p>
+            <p>11:30 a 16hs - 18:30hs a 1:00</p>
             </div>
-
+            
         </div>
 
     </footer>
-
+   
     <script type="text/javascript" src="javascript/menu.js"></script>
     <script type="text/javascript" src="javascript/modo-claro-oscuro.js"></script>
     <script type="text/javascript" src="javascript/formulario.js"></script>
     <script type="text/javascript" src="javascript/tabla-franquicias.js"></script>
-    <!-- <script type="text/javascript" src="javascript/filtracion.js"></script> -->
-
+    
 </body>
-
 </html>
