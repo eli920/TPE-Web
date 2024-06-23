@@ -12,51 +12,64 @@ let mensaje = document.querySelector(".mensaje");
 obtener();
 
 
-//Función para traer los datos de mi tabla
-async function obtener() {
-    let tabla = document.querySelector("#cuerpo-tabla");
-    tabla.innerHTML = "";
-
+//Función para traer los datos de mi tabla. Se pasa como parámetro filtro_local, para que se use en caso de que se haya ejecutado la funcion filtrar
+async function obtener(filtro_local) {
     try {
 
         let res = await fetch(BASE_URL);
         let json = await res.json(); 
 
-        for (let franquicia of json) {
-            let local = franquicia.local;
-            let direccion = franquicia.direccion;
-            let telefono = franquicia.telefono;
-            let id = franquicia.id;
+        // Si hay un filtro, se filtran los resultados y se devuelve un nuevo arreglo, caso contrario se devuelve el arreglo como tal.
+        let franquicias = filtro_local ? json.filter(franquicia => franquicia.local.toLowerCase().includes(filtro_local)) : json;
 
-            let fila = document.createElement("tr");
-           
-            fila.innerHTML = `
-                <td>${local}</td>
-                <td>${direccion}</td>
-                <td>${telefono}</td>
-                <td>
-                    <button class="editar">Editar</button>
-                    <button class="borrar">Borrar</button>
-                </td>
-            `
-            tabla.appendChild(fila);
-            
-            fila.querySelector(".editar").addEventListener('click', () => {
-                editar(id);
-            });
-
-            fila.querySelector(".borrar").addEventListener('click', () => {
-                borrar(id);
-            });
-        } 
-
+        if (filtro_local && franquicias.length === 0) {
+            mensaje.innerHTML = "No se ha encontrado el local solicitado";
+        } else {
+            mensaje.innerHTML = "";
+            actualizarTabla(franquicias);
+        }
+        
     } catch (error) {
-        mensaje.innerHTML = `Error: ${error}`;
+    mensaje.innerHTML = `Error: ${error}`;
     }
+}
+//Se pasan los datos por parametro y se actualiza la tabla en el DOM--------------------------------------------------------------------------
+function actualizarTabla(franquicias){
+    let tabla = document.querySelector("#cuerpo-tabla");
+    tabla.innerHTML = "";
+
+    for (let franquicia of franquicias) {
+        let local = franquicia.local;
+        let direccion = franquicia.direccion;
+        let telefono = franquicia.telefono;
+        let id = franquicia.id;
+
+        let fila = document.createElement("tr");
+    
+        fila.innerHTML = `
+            <td>${local}</td>
+            <td>${direccion}</td>
+            <td>${telefono}</td>
+            <td>
+                <button class="editar">Editar</button>
+                <button class="borrar">Borrar</button>
+            </td>
+        `
+        tabla.appendChild(fila);
+        
+        fila.querySelector(".editar").addEventListener('click', () => {
+            editar(id);
+        });
+
+        fila.querySelector(".borrar").addEventListener('click', () => {
+            borrar(id);
+        });
+       
+    }    
 }
 
 
-//funcion para agregar/enviar uno o varios datos
+//Funcion para agregar/enviar uno o varios datos--------------------------------------------------------------------------------------------
 async function agregar(e) {
     e.preventDefault();
 
@@ -95,7 +108,7 @@ async function agregar(e) {
     form_franquicias.reset();
 };
 
-
+//Función para editar una fila en la tabla---------------------------------------------------------------------------------------------
 async function editar(id) {
 
     let data = new FormData(form_franquicias);
@@ -103,7 +116,7 @@ async function editar(id) {
     let franquicia = {
         local: data.get('local'),
         direccion: data.get('direccion'),
-        telefono: data.get('telefono'),//Si le paso a number, me aparece el cero cuando quiero editar. Como no voy a operar, no hace falta pasarlo.
+        telefono: data.get('telefono'),//Si se pasa a number, aparece el cero cuando quiero editar. Como no vamos a operar, no hace falta pasarlo.
     }
 
 
@@ -128,7 +141,7 @@ async function editar(id) {
 
     form_franquicias.reset();
 };
-
+//Función para borrar una fila en la tabla---------------------------------------------------------------------------------------------
 async function borrar(id) {
     try {
         let response = await fetch(`${BASE_URL}/${id}`, {
@@ -146,67 +159,13 @@ async function borrar(id) {
     }
 };
 
-//Función filtrar
+//Función filtrar-------------------------------------------------------------------------------------------------------------------------
 let filtro = document.querySelector("#filtrar");
 filtro.addEventListener('click', filtrar);
 
 function filtrar() {
     let filtro_local = document.querySelector("#filtro-local").value.toLowerCase();
     
-    obtenerFiltro(filtro_local); 
+    obtener(filtro_local); 
 }
 
-async function obtenerFiltro(filtro_local) {
-    let tabla = document.querySelector("#cuerpo-tabla");
-    tabla.innerHTML = "";
-
-    try {
-
-        let url = new URL(BASE_URL);
-                if (filtro_local) {
-                    url.searchParams.append('local', filtro_local);
-                }
-
-        let res = await fetch(url);
-        let json = await res.json(); 
-
-            for (let franquicia of json) {
-                let local = franquicia.local;
-                let direccion = franquicia.direccion;
-                let telefono = franquicia.telefono;
-                let id = franquicia.id;
-    
-                if(filtro_local && franquicia.local===filtro_local){
-                    let fila = document.createElement("tr");
-                    fila.innerHTML = `
-                        <td>${local}</td>
-                        <td>${direccion}</td>
-                        <td>${telefono}</td>
-                        <td>
-                            <button class="editar">Editar</button>
-                            <button class="borrar">Borrar</button>
-                        </td>
-                    `
-                    tabla.appendChild(fila);
-                    
-                    fila.querySelector(".editar").addEventListener('click', () => {
-                        editar(id);
-                    });
-        
-                    fila.querySelector(".borrar").addEventListener('click', () => {
-                        borrar(id);
-                    });
-                }else if((filtro_local && franquicia.local!==filtro_local)){
-                    mensaje.innerHTML="No se ha encontardo el local solicitado"
-                }
-            }
-            
-            if(!filtro_local){
-                obtener();
-            }
-            
-
-        } catch (error) {
-        mensaje.innerHTML = `Error: ${error}`;
-    }
-}
