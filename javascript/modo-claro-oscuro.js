@@ -4,6 +4,7 @@ document.querySelector("#cambiar-fondo").addEventListener("click", cambiarFondo)
 
 function cambiarFondo(){
     let oscuro=document.querySelector("#fondo").classList.toggle("oscuro");
+    
     if(oscuro){
         document.querySelector(".img-ubicacion").src="./imagenes/iconoUbicacionBlanco.png";
         document.querySelector(".img-telefono").src="./imagenes/iconoTelefonoBlanco.png";

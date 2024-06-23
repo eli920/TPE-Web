@@ -4,10 +4,6 @@ const BASE_URL = 'https://666c8e3949dbc5d7145e6b07.mockapi.io/api/franquicias';
 let form_franquicias = document.querySelector("#form-franquicias");
 form_franquicias.addEventListener('submit', agregar);
 
-// document.querySelector("#agregar-varios").addEventListener('click', function(e){
-//     let cantidad= Number(document.querySelector("#cantidad-item").value);
-//     agregar_varios(cantidad);
-// });
 
 //Mensaje que mostrará si la acción fue exitosa o si hubo algún error
 let mensaje = document.querySelector(".mensaje");
@@ -15,7 +11,6 @@ let mensaje = document.querySelector(".mensaje");
 obtener();
 
 //funcion para traer los datos de mi tabla
-
 async function obtener() {
     let tabla = document.querySelector("#cuerpo-tabla");
     tabla.innerHTML = "";
@@ -31,15 +26,14 @@ async function obtener() {
             let id = franquicia.id;
 
             let fila = document.createElement("tr");
-            fila.classList.add("fila");
-
+           
             fila.innerHTML = `
-                <td class="celda">${local}</td>
-                <td class="celda">${direccion}</td>
-                <td class="celda">${telefono}</td>
+                <td>${local}</td>
+                <td>${direccion}</td>
+                <td>${telefono}</td>
                 <td>
-                    <button class="editar" data-id="${id}">Editar</button>
-                    <button class="borrar" >Borrar</button>
+                    <button class="editar">Editar</button>
+                    <button class="borrar">Borrar</button>
                 </td>
             `
             tabla.appendChild(fila);
@@ -59,12 +53,12 @@ async function obtener() {
 }
 
 
-//funcion para agregar/enviar datos
+//funcion para agregar/enviar uno o varios datos
 async function agregar(e) {
     e.preventDefault();
 
     let data = new FormData(form_franquicias);
-    let cantidad= Number(document.querySelector("#cantidad-item").value);
+    let cantidad = Number(document.querySelector("#cantidad-item").value);
 
     let franquicia = {
         local: data.get('local'),
@@ -86,9 +80,9 @@ async function agregar(e) {
                 mensaje.innerHTML = 'Creado!';
             }
 
-        }        
-                   
-         obtener();
+        }
+
+        obtener();
 
 
     } catch (error) {
