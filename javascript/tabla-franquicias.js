@@ -8,16 +8,19 @@ form_franquicias.addEventListener('submit', agregar);
 //Mensaje que mostrará si la acción fue exitosa o si hubo algún error
 let mensaje = document.querySelector(".mensaje");
 
+//LLamo a la función obtener, para mostrar la tabla cargada sin que el usuario tenga que hacer ningún click adicional
 obtener();
 
-//funcion para traer los datos de mi tabla
+
+//Función para traer los datos de mi tabla
 async function obtener() {
     let tabla = document.querySelector("#cuerpo-tabla");
     tabla.innerHTML = "";
 
     try {
+
         let res = await fetch(BASE_URL);
-        let json = await res.json();
+        let json = await res.json(); 
 
         for (let franquicia of json) {
             let local = franquicia.local;
@@ -37,7 +40,7 @@ async function obtener() {
                 </td>
             `
             tabla.appendChild(fila);
-
+            
             fila.querySelector(".editar").addEventListener('click', () => {
                 editar(id);
             });
@@ -45,8 +48,8 @@ async function obtener() {
             fila.querySelector(".borrar").addEventListener('click', () => {
                 borrar(id);
             });
+        } 
 
-        }
     } catch (error) {
         mensaje.innerHTML = `Error: ${error}`;
     }
@@ -143,3 +146,67 @@ async function borrar(id) {
     }
 };
 
+//Función filtrar
+let filtro = document.querySelector("#filtrar");
+filtro.addEventListener('click', filtrar);
+
+function filtrar() {
+    let filtro_local = document.querySelector("#filtro-local").value.toLowerCase();
+    
+    obtenerFiltro(filtro_local); 
+}
+
+async function obtenerFiltro(filtro_local) {
+    let tabla = document.querySelector("#cuerpo-tabla");
+    tabla.innerHTML = "";
+
+    try {
+
+        let url = new URL(BASE_URL);
+                if (filtro_local) {
+                    url.searchParams.append('local', filtro_local);
+                }
+
+        let res = await fetch(url);
+        let json = await res.json(); 
+
+            for (let franquicia of json) {
+                let local = franquicia.local;
+                let direccion = franquicia.direccion;
+                let telefono = franquicia.telefono;
+                let id = franquicia.id;
+    
+                if(filtro_local && franquicia.local===filtro_local){
+                    let fila = document.createElement("tr");
+                    fila.innerHTML = `
+                        <td>${local}</td>
+                        <td>${direccion}</td>
+                        <td>${telefono}</td>
+                        <td>
+                            <button class="editar">Editar</button>
+                            <button class="borrar">Borrar</button>
+                        </td>
+                    `
+                    tabla.appendChild(fila);
+                    
+                    fila.querySelector(".editar").addEventListener('click', () => {
+                        editar(id);
+                    });
+        
+                    fila.querySelector(".borrar").addEventListener('click', () => {
+                        borrar(id);
+                    });
+                }else if((filtro_local && franquicia.local!==filtro_local)){
+                    mensaje.innerHTML="No se ha encontardo el local solicitado"
+                }
+            }
+            
+            if(!filtro_local){
+                obtener();
+            }
+            
+
+        } catch (error) {
+        mensaje.innerHTML = `Error: ${error}`;
+    }
+}
