@@ -1,2 +1,4 @@
-https://666c8e3949dbc5d7145e6b07.mockapi.io/api/franquicias
 
+MOCKAPI: https://666c8e3949dbc5d7145e6b07.mockapi.io/api/franquicias
+
+HOST: https://lccasadecarnes.000webhostapp.com/
