@@ -17,9 +17,8 @@ async function obtener(filtro_local) {
     try {
 
         let res = await fetch(BASE_URL);
-        let json = await res.json(); 
-
-        // Si hay un filtro, se filtran los resultados y se devuelve un nuevo arreglo, caso contrario se devuelve el arreglo como tal.
+        let json = await res.json();
+        //ternario para aplicar filtro
         let franquicias = filtro_local ? json.filter(franquicia => franquicia.local.toLowerCase().includes(filtro_local)) : json;
 
         if (filtro_local && franquicias.length === 0) {
@@ -28,13 +27,13 @@ async function obtener(filtro_local) {
             mensaje.innerHTML = "";
             actualizarTabla(franquicias);
         }
-        
+
     } catch (error) {
-    mensaje.innerHTML = `Error: ${error}`;
+        mensaje.innerHTML = `Error: ${error}`;
     }
 }
-//Se pasan los datos por parametro y se actualiza la tabla en el DOM--------------------------------------------------------------------------
-function actualizarTabla(franquicias){
+
+function actualizarTabla(franquicias) {
     let tabla = document.querySelector("#cuerpo-tabla");
     tabla.innerHTML = "";
 
@@ -45,27 +44,26 @@ function actualizarTabla(franquicias){
         let id = franquicia.id;
 
         let fila = document.createElement("tr");
-    
+
         fila.innerHTML = `
-            <td>${local}</td>
-            <td>${direccion}</td>
-            <td>${telefono}</td>
-            <td>
-                <button class="editar">Editar</button>
-                <button class="borrar">Borrar</button>
-            </td>
-        `
+                    <td>${local}</td>
+                    <td>${direccion}</td>
+                    <td>${telefono}</td>
+                    <td>
+                        <button id="editar">Editar</button>
+                        <button id="borrar">Borrar</button>
+                    </td>`
         tabla.appendChild(fila);
-        
-        fila.querySelector(".editar").addEventListener('click', () => {
+
+        fila.querySelector("#editar").addEventListener('click', () => {
             editar(id);
         });
 
-        fila.querySelector(".borrar").addEventListener('click', () => {
+        fila.querySelector("#borrar").addEventListener('click', () => {
             borrar(id);
         });
-       
-    }    
+
+    }
 }
 
 
@@ -100,11 +98,10 @@ async function agregar(e) {
 
         obtener();
 
-
     } catch (error) {
         mensaje.innerHTML = `Error: ${error}`;
     }
-
+    //Una vez que envié los datos, borro los campos del formulario
     form_franquicias.reset();
 };
 
@@ -118,7 +115,6 @@ async function editar(id) {
         direccion: data.get('direccion'),
         telefono: data.get('telefono'),//Si se pasa a number, aparece el cero cuando quiero editar. Como no vamos a operar, no hace falta pasarlo.
     }
-
 
     try {
         let response = await fetch(`${BASE_URL}/${id}`, {
@@ -165,7 +161,7 @@ filtro.addEventListener('click', filtrar);
 
 function filtrar() {
     let filtro_local = document.querySelector("#filtro-local").value.toLowerCase();
-    
-    obtener(filtro_local); 
+
+    obtener(filtro_local);
 }
 

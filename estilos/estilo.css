@@ -1,6 +1,5 @@
 /*BODY-----------------------------------------------------------------------------------------*/
 body{
-    height: 100vh;
     margin: 0;
     font-size: 12px;
     font-family: sans-serif;
@@ -165,7 +164,9 @@ main{
     height: auto;
     border-radius: 10px;
 } 
-
+.nuestros-locales{
+    width: 90%;
+}
 .form-contacto{
     width: 70%;
     align-items: center;
@@ -192,11 +193,20 @@ form{
     color: #762123;
 }
 form button{
-    width: 30%;
+    width: 35%;
+    margin:10px;
+}
+/*formato filtro tabla--------------*/
+.filtro{
+    display:inline;
     margin:10px;
 }
 
 /*formato de la tabla---------------*/
+.nuestros-locales table{
+    width: 80%;
+}
+
 th,td{
     border: 2px solid #762123;
 }
@@ -206,15 +216,33 @@ th{
 }
 
 tr:nth-child(even){
-    color: crimson;   
+    color: #762123;   
 }
 
 td{
+    text-align: center;
     padding: 10px;
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
+td button,.filtro button{
+    margin:5px;
+}
+
+.mensaje{
+    text-shadow: 3px 3px 5px grey;
+}
+
+/*formato de formulario para cargar tabla--------*/
+.form-locales p {
+    font-weight: bold;
+    margin-top: 1.5px;
+    margin-bottom: 2px;
+}
+.form-locales form{
+    font-style: italic;
+}
 
 /*FOOTER------------------------------------------------------------------------------------------*/
 
@@ -269,7 +297,7 @@ footer{
         display: flex;
         flex-direction: row;
     }
-
+   
     section,.home figure,.reseña-platos {
         width: 100%;
     }
@@ -295,6 +323,10 @@ footer{
     .contacto-grid{
         grid-template-columns: 3fr 1fr;
         align-items: start;
+    }
+
+    .nuestros-locales table{
+        width: 100%;
     }
 
     .info-footer{

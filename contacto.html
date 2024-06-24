@@ -31,44 +31,46 @@
     <main>
         <section class="contacto-grid">
             <section class="nuestros-locales">
-                <h1>Donde encontrarnos</h1>
-                <div>
-                    <label for="filtro-local">Filtrar por Local</label>
-                    <input id="filtro-local" type="text" placeholder="Ingrese el local">
-                    <button id="filtrar">Filtrar</button>
-                </div>
-               
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Local</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpo-tabla">
-                      <!--acá se van cargando los datos de la tabla dinámica--> 
-                        
-                    </tbody>
-                </table>
-                <p class="mensaje"></p>
-            </section>
-            <!--linea nueva--> 
-            <section>
-                <form action="" id="form-franquicias">
-                    <label for="local">Local</label>
-                    <input id="local" type="text" name="local" placeholder="Ingrese el local" required>
-                    <label for="direccion">Dirección</label>
-                    <input id="direccion" type="text" name="direccion" placeholder="Ingrese la dirección" required>
-                    <label for="telefono">Número de teléfono</label>
-                    <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
-                    <label for="cantidad-item">Cantidad de ítems a agregar</label>
-                    <input id="cantidad-item" type="number" name="cantidad-item" placeholder="Ingrese cantidad de items a agregar" required> 
-                    <button>Agregar</button>
-                    
-                </form>
+                <section class= "nuestros-locales">
+                    <h1>Donde encontrarnos</h1>
+                    <div class="filtro">
+                        <label for="filtro-local">Filtrar por local</label>
+                        <input id="filtro-local" type="text" placeholder="Ingrese el local">
+                        <button id="filtrar">Filtrar</button>
+                    </div>
                 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Local</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla">
+                        <!--acá se van cargando los datos de la tabla dinámica--> 
+                            
+                        </tbody>
+                    </table>
+                    <p class="mensaje"></p>
+                </section>
+           
+                <section class="nuestros-locales form-locales">
+                    <p>¿Necesitás agregar un nuevo local o editar uno ya existente?</p>
+                    <p>Cargá los datos aquí</p>
+                    <form action="" id="form-franquicias">
+                        <label for="local">Local</label>
+                        <input id="local" type="text" name="local" placeholder="Ingrese el local" required>
+                        <label for="direccion">Dirección</label>
+                        <input id="direccion" type="text" name="direccion" placeholder="Ingrese la dirección" required>
+                        <label for="telefono">Número de teléfono</label>
+                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" required>
+                        <label for="cantidad-item">Cantidad de ítems a agregar</label>
+                        <input id="cantidad-item" type="number" name="cantidad-item" placeholder="Ingrese cantidad" required> 
+                        <button>Agregar</button> 
+                    </form>    
+                </section>
             </section>    
             <aside class="form-contacto">
                     <h2>Contactanos</h2>
@@ -76,7 +78,7 @@
                         <label for="nombre">Nombre y Apellido</label>
                         <input id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre completo" required>
                         <label for="telefono">Número de teléfono</label>
-                        <input id="telefono" type="tel" name="telefono" placeholder="Ej: 11 00000000" minlength="10" required>
+                        <input id="telefono" type="number" name="telefono" placeholder="Ej: 11 00000000" required>
                         <label for="email">Dirección de e-mail</label>
                         <input id="email" type="email" name="email" placeholder="Ej: yosoy@micorreo.com" required>
                         <label for="consulta">Consulta</label>
