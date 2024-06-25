@@ -10,7 +10,7 @@ let mensaje = document.querySelector(".mensaje");
 
 //LLamo a la función obtener, para mostrar la tabla cargada sin que el usuario tenga que hacer ningún click adicional
 obtener();
-
+console.log(resonse.status)
 
 //Función para traer los datos de mi tabla. Se pasa como parámetro filtro_local, para que se use en caso de que se haya ejecutado la funcion filtrar
 async function obtener(filtro_local) {
@@ -50,16 +50,16 @@ function actualizarTabla(franquicias) {
                     <td>${direccion}</td>
                     <td>${telefono}</td>
                     <td>
-                        <button id="editar">Editar</button>
-                        <button id="borrar">Borrar</button>
+                        <button class="editar">Editar</button>
+                        <button class="borrar">Borrar</button>
                     </td>`
         tabla.appendChild(fila);
 
-        fila.querySelector("#editar").addEventListener('click', () => {
+        fila.querySelector(".editar").addEventListener('click', () => {
             editar(id);
         });
 
-        fila.querySelector("#borrar").addEventListener('click', () => {
+        fila.querySelector(".borrar").addEventListener('click', () => {
             borrar(id);
         });
 
