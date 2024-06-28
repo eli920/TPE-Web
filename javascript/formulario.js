@@ -8,10 +8,13 @@ function generarCaptcha(){
 
       for (let i = 0; i < longitudCaptcha; i++) {
           captcha += caracter.charAt(Math.floor(Math.random() * caracter.length));
+         
+          console.log(captcha);
       }
 
   let captchaRandom=document.querySelector("#captcha");
   captchaRandom.innerHTML= captcha; 
+ 
 }
  
 generarCaptcha();

@@ -10,7 +10,6 @@ let mensaje = document.querySelector(".mensaje");
 
 //LLamo a la función obtener, para mostrar la tabla cargada sin que el usuario tenga que hacer ningún click adicional
 obtener();
-console.log(resonse.status)
 
 //Función para traer los datos de mi tabla. Se pasa como parámetro filtro_local, para que se use en caso de que se haya ejecutado la funcion filtrar
 async function obtener(filtro_local) {
@@ -50,7 +49,7 @@ function actualizarTabla(franquicias) {
                     <td>${direccion}</td>
                     <td>${telefono}</td>
                     <td>
-                        <button class="editar">Editar</button>
+                        <button type="submit" class="editar">Editar</button>
                         <button class="borrar">Borrar</button>
                     </td>`
         tabla.appendChild(fila);
@@ -107,13 +106,18 @@ async function agregar(e) {
 
 //Función para editar una fila en la tabla---------------------------------------------------------------------------------------------
 async function editar(id) {
+    // Verificar si el formulario está con los campos requeridos
+    if (!form_franquicias.checkValidity()) {
+        form_franquicias.reportValidity();  // Muestra los mensajes de validacion propios del formulario
+        return;  // No continuar si el formulario no es válido
+    }
 
     let data = new FormData(form_franquicias);
 
     let franquicia = {
         local: data.get('local'),
         direccion: data.get('direccion'),
-        telefono: data.get('telefono'),//Si se pasa a number, aparece el cero cuando quiero editar. Como no vamos a operar, no hace falta pasarlo.
+        telefono: Number(data.get('telefono')),
     }
 
     try {
