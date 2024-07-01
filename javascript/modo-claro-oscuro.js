@@ -3,7 +3,7 @@
 document.querySelector("#cambiar-fondo").addEventListener("click", cambiarFondo);
 
 function cambiarFondo(){
-    let oscuro=document.querySelector("#fondo").classList.toggle("oscuro");
+    let oscuro=document.querySelector("body").classList.toggle("oscuro");
     
     if(oscuro){
         document.querySelector(".img-ubicacion").src="./imagenes/iconoUbicacionBlanco.png";
